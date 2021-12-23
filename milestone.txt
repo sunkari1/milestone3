@@ -1,0 +1,71 @@
+package project1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class milestone3 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\sunka\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://the-internet.herokuapp.com/");
+		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[25]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[1]/img")).click();
+		System.out.println("name:"+driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[1]/div/h5")).getText());
+		driver.navigate().back();
+		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[6]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).click();
+		Thread.sleep(2000L);
+		driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).click();
+		driver.navigate().back();
+		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[27]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/input")).sendKeys("9899");
+	Thread.sleep(2000L);
+	driver.navigate().back();
+	driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[11]/a")).click();
+	driver.findElement(By.xpath("//*[@id=\"dropdown\"]")).click();
+	int i=1;
+	
+	while(i<3)
+	{
+		driver.findElement(By.xpath("//*[@id=\"dropdown\"]"));
+		i++;
+		driver.findElement(By.xpath("//*[@id=\"dropdown\"]/option[3]")).click();
+		driver.navigate().back();
+		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[18]/a")).click();
+		
+		driver.navigate().back();
+		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[41]/a")).click();
+		
+		System.out.println("email:"+driver.findElement(By.xpath("//*[@id=\"table1\"]/tbody/tr[4]/td[3]")).getText());
+		System.out.println("website:"+driver.findElement(By.xpath("//*[@id=\"table1\"]/tbody/tr[4]/td[5]")).getText());
+		driver.navigate().back();
+		driver.findElement(By.cssSelector("#content > ul > li:nth-child(31) > a")).click();
+		driver.findElement(By.cssSelector("#target")).sendKeys("hi");
+		System.out.println("text:"+driver.findElement(By.xpath("//*[@id=\"result\"]")).getText());
+		driver.navigate().back();
+		
+		
+		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[7]/a")).click();
+		Actions actions = new Actions(driver);
+		WebElement elementLocator = driver.findElement(By.id("hot-spot"));
+		actions.contextClick(elementLocator).perform();
+		driver.navigate().back();
+		
+		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[33]/a")).click();
+		driver.findElement(By.xpath("//*[@id=\"content\"]/div/a")).click();
+		System.out.println("text:"+driver.findElement(By.cssSelector("body > div > h3")).getText());
+		driver.navigate().to("\"http://the-internet.herokuapp.com/\"");
+		
+			
+	
+		
+	}
+	}
+}
